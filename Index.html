@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nithish Ravikkumar — AI / ML Engineer</title>
-<meta name="description" content="Nithish Ravikkumar — Engineering Physics undergrad at IIT Roorkee building real-time perception, retrieval and control systems: voice agents, edge AI, robotics, FPGA deployment.">
-<meta property="og:title" content="Nithish Ravikkumar — AI / ML Engineer">
-<meta property="og:description" content="AI systems that have to survive contact with the real world: phone lines, FPGAs, rovers, drones.">
+<title>Nithish Ravikkumar — AI Engineer</title>
+<meta name="description" content="Nithish Ravikkumar — Engineering Physics undergrad at IIT Roorkee building real-time perception, retrieval, and control systems.">
+<meta property="og:title" content="Nithish Ravikkumar — AI Engineer">
+<meta property="og:description" content="AI and robotics engineer focused on efficient, real-time edge deployments.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0E13'/%3E%3Cpath d='M2 18 L9 18 L12 8 L16 24 L19 14 L22 18 L30 18' fill='none' stroke='%23FFB454' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +64,6 @@
 
   section{ position:relative; }
 
-  /* recurring "calibration mark" eyebrow — the one structural motif reused everywhere */
   .eyebrow{
     display:inline-flex;
     align-items:center;
@@ -423,7 +422,7 @@
   }
 
   /* =========================================================
-     FLIGHT LOG / EXPERIENCE
+     EXPERIENCE
   ========================================================= */
   .log-card{
     border:1px solid var(--line);
@@ -547,7 +546,6 @@
     transition:color .2s ease, gap .2s ease;
   }
   .pcard-link:hover{ color:var(--amber); gap:9px; }
-  .pcard-star{ font-family:var(--f-mono); font-size:0.74rem; color:var(--muted-2); }
 
   /* =========================================================
      RESULTS
@@ -662,7 +660,7 @@
     padding-top:40px;
   }
   .contact h2{
-    font-size:clamp(1.8rem, 4.5vw, 3rem);
+    font-size:clamp(1.8rem, 4.5vw, 2.5rem);
     max-width:760px;
     margin:0 auto 28px;
   }
@@ -705,12 +703,11 @@
   <div class="wrap nav-row">
     <a href="#top" class="logo"><span class="logo-dot"></span>N.RAVIKKUMAR</a>
     <nav class="nav-links">
-      <a href="#profile">Profile</a>
-      <a href="#log">Log</a>
-      <a href="#work">Work</a>
+      <a href="#profile">Background</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Projects</a>
       <a href="#repos">Repos</a>
-      <a href="#results">Results</a>
-      <a href="#contact">Contact</a>
+      <a href="#results">Achievements</a>
     </nav>
     <div class="nav-cta">
       <a class="btn" href="./resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
@@ -718,28 +715,26 @@
     </div>
   </div>
   <div class="nav-mobile" id="navMobile">
-    <a href="#profile">Profile</a>
-    <a href="#log">Log</a>
-    <a href="#work">Work</a>
+    <a href="#profile">Background</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Projects</a>
     <a href="#repos">Repos</a>
-    <a href="#results">Results</a>
-    <a href="#contact">Contact</a>
+    <a href="#results">Achievements</a>
     <a href="./resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ============ HERO ============ -->
   <section class="hero">
     <canvas id="scope"></canvas>
     <div class="wrap hero-inner">
-      <div class="hero-kicker"><span class="pulse"></span>SIGNAL ACQUIRED · ROORKEE, INDIA</div>
+      <div class="hero-kicker"><span class="pulse"></span>ROORKEE, INDIA</div>
       <h1>NITHISH<br>RAVIKKUMAR</h1>
-      <p class="hero-tagline">AI that ships where it's hardest to ship — on <em>phone lines</em>, <em>FPGAs</em>, <em>rovers</em>, and <em>drones</em>.</p>
-      <p class="hero-desc">Engineering Physics undergrad at IIT Roorkee, building real-time perception, retrieval and control systems — then fitting them onto whatever compute budget they actually have to run on.</p>
+      <p class="hero-tagline">AI and robotics engineer focused on perception, retrieval, and edge deployments.</p>
+      <p class="hero-desc">I'm a third-year Engineering Physics undergrad at IIT Roorkee. I enjoy building systems that interact with the physical world—whether that means optimizing neural networks for FPGAs or developing real-time voice agents.</p>
       <div class="hero-actions">
-        <a href="#work" class="btn btn--solid">See the builds ↓</a>
+        <a href="#work" class="btn btn--solid">View Projects ↓</a>
         <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
         <a href="mailto:nithish232005@gmail.com" class="btn">Email ↗</a>
       </div>
@@ -748,45 +743,41 @@
     <div class="hero-readout">CH1 <span id="ro-x">●</span> AMP &nbsp; CH2 <span id="ro-y">●</span> FREQ<br>STATUS: <span>STABLE</span></div>
   </section>
 
-  <!-- ============ TICKER ============ -->
   <div class="ticker">
     <div class="ticker-track" id="tickerTrack"></div>
   </div>
 
-  <!-- ============ PROFILE / ABOUT ============ -->
   <section class="pad-section" id="profile">
     <div class="wrap">
       <div class="about-grid">
         <div class="reveal">
-          <p class="eyebrow">Profile</p>
-          <h2 class="section-title">Physics first. Systems that ship, second nature.</h2>
+          <p class="eyebrow">Background</p>
+          <h2 class="section-title">Bridging physics, machine learning, and systems.</h2>
           <div class="about-body">
-            <p>I'm a third-year <strong>Engineering Physics</strong> student at <strong>IIT Roorkee</strong>, which means I arrived at AI through control theory and signal processing rather than the other way round. That shows up in how I build: optical flow running on an FPGA's DPU, a voice agent that has to answer in under a second, a document pipeline that has to run on a laptop CPU.</p>
-            <p>The constraint is usually the interesting part. I work across the stack — model, pipeline, deployment — and I'd rather ship something at 70% accuracy on real hardware than 99% in a notebook.</p>
+            <p>My background in <strong>Engineering Physics</strong> at <strong>IIT Roorkee</strong> has naturally led me to approach AI from a signal processing and systems perspective. I focus on the end-to-end pipeline—from prototyping models to deploying them efficiently.</p>
+            <p>I enjoy working across the stack, preferring to tackle problems where computational efficiency and real-world constraints (like latency limits or edge deployment on microcontrollers and DPUs) are just as important as algorithmic accuracy.</p>
           </div>
           <div class="about-meta">
-            <div><b>Education —</b> B.Tech, Engineering Physics, IIT Roorkee · 2023–2027</div>
-            <div><b>Based in —</b> Roorkee, Uttarakhand, India</div>
+            <div><b>Education —</b> B.Tech, Engineering Physics, IIT Roorkee (2023–2027)</div>
+            <div><b>Location —</b> Roorkee, Uttarakhand, India</div>
             <div><b>Currently —</b> Open to AI/ML engineering internships &amp; collaborations</div>
           </div>
         </div>
 
         <div class="stack-col reveal">
           <div class="stack-card">
-            <h4>// Language &amp; Learning</h4>
+            <h4>// Programming &amp; ML Frameworks</h4>
             <div class="stack-chips">
-              <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span>
+              <span class="chip">Python</span><span class="chip">C++</span><span class="chip">SQL</span>
               <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Scikit-Learn</span>
-              <span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Hugging Face</span>
-              <span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">SciPy</span>
-              <span class="chip">Matplotlib</span><span class="chip">Seaborn</span>
+              <span class="chip">LangChain</span><span class="chip">Hugging Face</span><span class="chip">ONNX</span>
             </div>
           </div>
           <div class="stack-card">
             <h4>// Robotics &amp; Hardware</h4>
             <div class="stack-chips">
               <span class="chip">ROS2</span><span class="chip">Gazebo</span><span class="chip">Mavlink</span>
-              <span class="chip">Ardupilot</span><span class="chip">C++ / Arduino</span><span class="chip">ESP32</span>
+              <span class="chip">Ardupilot</span><span class="chip">Arduino</span><span class="chip">ESP32</span>
               <span class="chip">Altium Designer</span>
             </div>
           </div>
@@ -794,8 +785,7 @@
             <h4>// Infrastructure &amp; Tooling</h4>
             <div class="stack-chips">
               <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">GCP</span>
-              <span class="chip">OpenCV</span><span class="chip">Pillow</span><span class="chip">Whisper</span>
-              <span class="chip">FreeSwitch</span><span class="chip">ONNX</span>
+              <span class="chip">OpenCV</span><span class="chip">Whisper</span><span class="chip">FreeSwitch</span>
             </div>
           </div>
         </div>
@@ -803,12 +793,11 @@
     </div>
   </section>
 
-  <!-- ============ FLIGHT LOG / EXPERIENCE ============ -->
-  <section class="pad-section" id="log">
+  <section class="pad-section" id="experience">
     <div class="wrap">
-      <p class="eyebrow reveal">Flight Log</p>
-      <h2 class="section-title reveal">One entry so far. It was a real deployment.</h2>
-      <p class="section-sub reveal">The most recent line in the logbook — an internship that went from prototype to a live, telephony-connected agent.</p>
+      <p class="eyebrow reveal">Experience</p>
+      <h2 class="section-title reveal">Professional Experience</h2>
+      <p class="section-sub reveal">Recent work deploying AI infrastructure for industry applications.</p>
 
       <div class="log-card reveal">
         <div class="log-meta">
@@ -819,38 +808,36 @@
         </div>
         <ul class="log-list">
           <li>Prototyped and deployed an <strong>audio-modal AI agent</strong> acting as a call-center assistant for micro-warehouse e-commerce deliveries.</li>
-          <li>Built the end-to-end pipeline — <strong>STT/TTS, voice-activity detection, intent classification and RAG retrieval</strong> — wired into telephony infrastructure, holding real-time query resolution to <strong>≤0.8s response latency</strong>.</li>
-          <li>Re-architected the cloud deployment (GCP) around <strong>open-source LLM and speech components</strong> with rule-based routing to cut token usage — bringing operating cost down by <strong>over 60%</strong> versus commercial API equivalents.</li>
+          <li>Developed an end-to-end pipeline integrating <strong>STT/TTS, voice-activity detection, intent classification, and RAG retrieval</strong> with telephony services, enabling real-time query resolution with <strong>≤0.8s response latency</strong>.</li>
+          <li>Optimized cloud deployment (GCP) using <strong>open-source LLM and speech components</strong> along with rule-based routing to reduce token usage, cutting operating costs by <strong>over 60%</strong> compared to commercial API solutions.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ FEATURED PROJECTS ============ -->
   <section class="pad-section" id="work">
     <div class="wrap">
-      <p class="eyebrow reveal">Featured Builds</p>
-      <h2 class="section-title reveal">Selected systems, end to end</h2>
-      <p class="section-sub reveal">Thirteen of the builds I'd point you to first — the rest live in the raw feed further down the page.</p>
+      <p class="eyebrow reveal">Selected Projects</p>
+      <h2 class="section-title reveal">Core Projects</h2>
+      <p class="section-sub reveal">Four projects that best represent my work across computer vision, NLP, edge optimization, and robotics.</p>
 
       <div class="filter-row reveal">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ai">AI &amp; Language</button>
-        <button class="filter-btn" data-filter="robotics">Robotics &amp; Control</button>
-        <button class="filter-btn" data-filter="vision">Computer Vision</button>
-        <button class="filter-btn" data-filter="physics">Physics &amp; Simulation</button>
+        <button class="filter-btn" data-filter="ai">AI &amp; NLP</button>
+        <button class="filter-btn" data-filter="vision">Vision &amp; Hardware</button>
+        <button class="filter-btn" data-filter="systems">Systems &amp; Edge</button>
+        <button class="filter-btn" data-filter="robotics">Robotics</button>
       </div>
 
-      <div class="project-grid" id="projectGrid"><!-- injected by JS --></div>
+      <div class="project-grid" id="projectGrid"></div>
     </div>
   </section>
 
-  <!-- ============ MISSION RESULTS ============ -->
   <section class="pad-section" id="results">
     <div class="wrap">
-      <p class="eyebrow reveal">Mission Results</p>
-      <h2 class="section-title reveal">Where the builds got tested</h2>
-      <p class="section-sub reveal">Competitions, hackathons and exams the work (and I) got measured against.</p>
+      <p class="eyebrow reveal">Achievements</p>
+      <h2 class="section-title reveal">Competitions &amp; Milestones</h2>
+      <p class="section-sub reveal">Hackathons, engineering challenges, and academic performance.</p>
 
       <div class="results-grid">
         <ul class="results-list reveal">
@@ -860,37 +847,30 @@
           <li><span class="res-rank">RUNNER-UP</span><span class="res-name">Syntax Error X 2023</span><span class="res-result">National hackathon</span></li>
           <li><span class="res-rank">AIR 1992</span><span class="res-name">JEE Mains 2023</span><span class="res-result">Top 0.2%</span></li>
           <li><span class="res-rank">AIR 3282</span><span class="res-name">JEE Advanced 2023</span><span class="res-result">—</span></li>
-          <li><span class="res-rank">AIR 178</span><span class="res-name">KVPY SA</span><span class="res-result">—</span></li>
-          <li><span class="res-rank">SCHOLAR</span><span class="res-name">NTSE</span><span class="res-result">—</span></li>
+          <li><span class="res-rank">SCHOLAR</span><span class="res-name">KVPY SA (AIR 178) &amp; NTSE</span><span class="res-result">—</span></li>
         </ul>
 
         <div class="teams-col reveal">
           <div class="team-card">
             <h4>ROBOCON</h4>
             <span>CORE MEMBER · ELECTRONICS &amp; ROBOTICS</span>
-            <p>ML-based altitude-aware path planning for a Mars rover prototype, plus real-time object detection and navigation comms.</p>
+            <p>Optimized terrain mapping and path planning using ML-based altitude-aware cost functions for Rover using drone imaging. Deployed real-time object detection DL models.</p>
           </div>
           <div class="team-card">
             <h4>ARIES</h4>
             <span>CORE MEMBER · ROBOTICS &amp; DRONES</span>
-            <p>Simulated and tuned UAV flight-control algorithms; competed at the MathWorks Minidrone Challenge, IISc Bangalore.</p>
-          </div>
-          <div class="team-card">
-            <h4>NSS IIT ROORKEE</h4>
-            <span>VOLUNTEER · EDITORIAL CELL</span>
-            <p>Curated content for campus awareness campaigns and ran NSS's social presence.</p>
+            <p>Simulated and tested UAV prototypes to tune flight control algorithms. Competed at the MathWorks Minidrone Challenge at IISc Bangalore.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ LIVE REPO FEED ============ -->
   <section class="pad-section" id="repos">
     <div class="wrap">
       <p class="eyebrow reveal">Live From GitHub</p>
-      <h2 class="section-title reveal">Everything else, pulled straight from the source</h2>
-      <p class="section-sub reveal">This list is fetched live from <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" style="color:var(--cyan); border-bottom:1px solid var(--line);">github.com/shadowPunch</a> — it updates itself the moment a new repo goes up.</p>
+      <h2 class="section-title reveal">Repository Feed</h2>
+      <p class="section-sub reveal">This list is fetched live from <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" style="color:var(--cyan); border-bottom:1px solid var(--line);">github.com/shadowPunch</a>.</p>
 
       <div class="feed-panel reveal">
         <div class="feed-bar">
@@ -904,11 +884,10 @@
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
   <section class="pad-section contact" id="contact">
     <div class="wrap">
       <p class="eyebrow reveal" style="justify-content:center;">Sign Off</p>
-      <h2 class="reveal">Building something that has to survive contact with reality? Let's talk.</h2>
+      <h2 class="reveal">Interested in collaborating or discussing AI and robotics? Let's connect.</h2>
       <a href="mailto:nithish232005@gmail.com" class="contact-email reveal">nithish232005@gmail.com</a>
       <div class="contact-links reveal">
         <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
@@ -960,15 +939,14 @@
 
   /* ---------------- ticker content ---------------- */
   var stats = [
-    ['≤0.8s', 'VOICE AGENT RESPONSE LATENCY'],
-    ['72%', 'FASTER FPGA INFERENCE'],
+    ['≤0.8s', 'LATENCY FOR VOICE AGENT'],
+    ['72%', 'REDUCTION IN FPGA INFERENCE TIME'],
     ['0.78 → 0.31', 'BIAS SCORE REDUCTION'],
-    ['75%', 'SMALLER MODEL VIA INT8 QUANTIZATION'],
-    ['RANK 5', "ISDC'25 — INTERNATIONAL SPACE DRONE CHALLENGE"],
-    ['96.4%', 'BEST-MODEL FORECAST ACCURACY'],
+    ['3x', 'FASTER INFERENCE VIA ONNX INT8'],
+    ['RANK 5', "ISDC'25 INTERNATIONAL SPACE DRONE CHALLENGE"],
+    ['96.4%', 'FORECASTING ACCURACY (LSTM)'],
     ['90%+', 'ENTITY EXTRACTION ACCURACY'],
-    ['RANK 10', "IRC'25 — INTERNATIONAL ROVER CHALLENGE"],
-    ['60%+', 'OPERATING COST CUT VS COMMERCIAL APIS']
+    ['RANK 10', "IRC'25 INTERNATIONAL ROVER CHALLENGE"]
   ];
   function buildTicker(){
     var html = '';
@@ -983,96 +961,38 @@
   /* ---------------- project data + filtering ---------------- */
   var projects = [
     {
-      cat:'robotics vision', catLabel:'ROBOTICS & CONTROL', period:'MAR – SEP 2025',
-      title:'Optical Flow Estimation & Collision Prevention',
-      desc:"Collision-prevention system for autonomous vehicles pairing PWC-Net optical flow with YOLOv9T detection. A Time-to-Collision estimator (divergence + flow-magnitude heuristics, Echo State Network) predicts trajectory up to 300ms ahead at 30 FPS. Quantized, pruned and compiled with Vitis AI for an AMD Kria FPGA's DPU — built under Prof. Sparsh Mittal, ECE IITR, for the AMD Open Hardware Contest 2025.",
-      metrics:['300ms lookahead @ 30 FPS','72% lower inference time','Deployed on Kria DPU'],
+      cat:'vision', catLabel:'VISION & HARDWARE', period:'MAR – SEP 2025',
+      title:'Optical Flow Estimation on Edge',
+      desc:"Designed a collision prevention system for autonomous vehicles using PWC-Net based optical flow and YOLOv9T. Developed a Time-To-Collision estimator using divergence heuristics and an Echo State Network. Applied quantization and pruning to compile with Vitis AI for deployment on an AMD Kria FPGA DPU.",
+      metrics:['300ms lookahead @ 30 FPS','72% lower inference time'],
       repo:'https://github.com/shadowPunch/Optic-Flow-Estimation'
     },
     {
-      cat:'ai', catLabel:'AI & LANGUAGE', period:'SEP – OCT 2025',
-      title:'Bias Detection & Ground Truth Inference',
-      desc:'Bias-neutralization pipeline pairing a BERT token-level bias detector with a BART seq2seq editor, trained on the Wiki Neutrality Corpus plus multi-source news. NLI-based entailment checks across left/center/right outlets confirm the neutral rewrites keep their facts straight.',
-      metrics:['Bias score 0.78 → 0.31','0.84 SBERT similarity','85% entailment retention'],
+      cat:'ai', catLabel:'AI & NLP', period:'SEP – OCT 2025',
+      title:'Bias Detection in Media Text',
+      desc:'Designed a bias-neutralization pipeline using a BERT encoder for token-level bias detection and a BART-based seq2seq editor. Evaluated the model on entailment consistency, achieving 85% factual entailment retention across varied news sources.',
+      metrics:['Bias reduction 0.78 &rarr; 0.31','85% entailment retention'],
       repo:'https://github.com/shadowPunch/Ground-Truth-inference'
     },
     {
-      cat:'ai', catLabel:'AI & LANGUAGE', period:'JUL 2025',
-      title:'Document Distillation on Edge Compute',
-      desc:"A system that ingests large PDF collections and extracts ranked, structured insight against a user's stated need — built to run entirely on CPU. Hybrid retrieval (BM25 + sentence-transformer dense search) feeds an INT8-quantized ONNX Runtime pipeline. Built for the Adobe India Hackathon.",
-      metrics:['75% smaller model (INT8)','3x faster inference','≤10s per document'],
+      cat:'systems', catLabel:'SYSTEMS & EDGE', period:'JUL 2025',
+      title:'Document Distillation Pipeline',
+      desc:"Architected a hybrid retrieval pipeline (Lexical search, BM25, and Sentence Transformers) to extract and rank insights from large PDF collections. Applied INT8 static quantization via ONNX Runtime to optimize CPU execution.",
+      metrics:['75% smaller model','3x faster inference','&le;10s per document'],
       repo:'https://github.com/shadowPunch/Document-Distlllation-on-Edge-compute'
     },
     {
-      cat:'ai', catLabel:'AI & LANGUAGE', period:'2025',
-      title:'Static RAG Application',
-      desc:'A retrieval-augmented chatbot built on a static document corpus — the same RAG architecture later adapted into the Aviostack call-center deployment.',
-      metrics:['LangChain pipeline','Document-grounded answers'],
-      repo:'https://github.com/shadowPunch/Static-RAG-Application'
-    },
-    {
-      cat:'ai', catLabel:'AI & LANGUAGE', period:'APR 2025',
-      title:'Financial Time Series Forecasting',
-      desc:'Forecasting pipeline for the market-cap growth of Indian companies. Benchmarked ElasticNet, decision trees and LSTM variants against historical indicators, then used volatility clustering to segment sectoral risk for investment insight.',
-      metrics:['96.4% accuracy (best LSTM)','Sectoral risk segmentation'],
-      repo:'https://github.com/shadowPunch/FidelFolio_DL'
-    },
-    {
       cat:'robotics', catLabel:'ROBOTICS & CONTROL', period:'JAN 2025',
-      title:'iRRT Path Planning for Terrain & Drone Navigation',
-      desc:'Extended Informed-RRT with octree-based spatial partitioning for collision-free navigation across a LiDAR-reconstructed 3D terrain. Elastic-band smoothing and a terrain-aware cost function penalize high-gradient, collision-prone paths. Built for ISDC\u201925 — placed 5th internationally.',
+      title:'iRRT Path Planning for Drone Navigation',
+      desc:'Improved the Informed-RRT path planning framework using Octree-based spatial partitioning for collision-free navigation across 3D LIDAR point clouds. Implemented terrain-aware cost functions to penalize high-gradient zones.',
       metrics:["Int'l Rank 5 — ISDC'25",'3D octree partitioning'],
       repo:'https://github.com/shadowPunch/iRRT-based-path-planning'
-    },
-    {
-      cat:'physics', catLabel:'PHYSICS & SIMULATION', period:'OCT 2025',
-      title:'Monte Carlo Simulation of Nanofilm Deposition',
-      desc:'A Monte Carlo framework simulating nanofilm growth across five stochastic models — Random Deposition, Edwards–Wilkinson, KPZ, Ballistic Deposition and BKL — with temperature-dependent surface diffusion via Arrhenius kinetics and Metropolis acceptance, validated against theoretical scaling exponents in 1D and 2D.',
-      metrics:['5 stochastic growth models','1D + 2D validation'],
-      repo:'https://github.com/shadowPunch/Monte-Carlo-simulation-of-Nanofilm-Depostion'
-    },
-    {
-      cat:'physics', catLabel:'PHYSICS & SIMULATION', period:'MAR – APR 2026',
-      title:'Atmospheric Temperature Profiling',
-      desc:'A multi-source atmospheric analysis pipeline fusing radiosonde balloon soundings with ERA5 reanalysis NetCDF data across four seasonal profiles, generating Skew-T Log-P diagrams with parcel overlays and thermodynamic indices (CAPE, CIN, LCL, LFC).',
-      metrics:['4 seasonal profiles','CAPE / CIN / LCL / LFC'],
-      repo:'https://github.com/shadowPunch/Atmospheric-temperature-profile'
-    },
-    {
-      cat:'ai vision', catLabel:'AI & LANGUAGE', period:'SEP – OCT 2024',
-      title:'Warehouse Automation — Flipkart Grid 6.0',
-      desc:'A package-sorting pipeline combining image segmentation with OCR and fine-tuned small language models (NuExtract, Gemma-2B) to pull customer entities off noisy, dynamically scanned receipts. Semi-finalist, Flipkart Grid 6.0.',
-      metrics:['90%+ extraction accuracy','Semi-finalist, Grid 6.0'],
-      repo:'https://github.com/shadowPunch/Warehouse-Automation'
-    },
-    {
-      cat:'vision', catLabel:'COMPUTER VISION', period:'OCT 2023',
-      title:"Air Cube — Hand-Gesture Rubik's Cube",
-      desc:"A virtual Rubik's Cube controlled entirely by hand gestures, tracked with MediaPipe and rendered with OpenCV. A Kociemba-algorithm auto-solver and a VPython/Tkinter UI round it out. Runner-up, Syntax Error 2023.",
-      metrics:['Runner-up, Syntax Error 2023'],
-      repo:'https://github.com/shadowPunch/Air-Cube-'
-    },
-    {
-      cat:'robotics', catLabel:'ROBOTICS & CONTROL', period:'2024',
-      title:'Control of Mecanum Wheels',
-      desc:'A control system for a mecanum-wheeled robot, enabling independent translation and rotation for omnidirectional movement.',
-      metrics:['C++ control firmware'],
-      repo:'https://github.com/shadowPunch/Control-of-Mecanum-wheels',
-      star:1
-    },
-    {
-      cat:'robotics', catLabel:'ROBOTICS & CONTROL', period:'2024',
-      title:'Multi-Robot Coordination',
-      desc:'Multi-robot coordination using SLAM, Conflict-Based Search (CBS) and clustering for decentralized task allocation and collision-free routing.',
-      metrics:['SLAM + CBS','Decentralized routing'],
-      repo:'https://github.com/shadowPunch/Multi-Robot-Coordination'
     }
   ];
 
   var grid = document.getElementById('projectGrid');
   function cardHTML(p){
     var metrics = p.metrics.map(function(m){ return '<span class="chip">'+m+'</span>'; }).join('');
-    var star = p.star ? '<span class="pcard-star">★ '+p.star+'</span>' : '<span></span>';
     return (
       '<article class="pcard reveal is-visible" data-cat="'+p.cat+'">'+
         '<div class="pcard-top"><span class="pcard-cat">'+p.catLabel+'</span><span class="pcard-period">'+p.period+'</span></div>'+
@@ -1081,7 +1001,6 @@
         '<div class="pcard-metrics">'+metrics+'</div>'+
         '<div class="pcard-foot">'+
           '<a class="pcard-link" href="'+p.repo+'" target="_blank" rel="noopener">View repo ↗</a>'+
-          star+
         '</div>'+
       '</article>'
     );
@@ -1105,13 +1024,8 @@
   var EXCLUDE = ['shadowPunch', 'shadowPunch.github.io'];
   var FALLBACK = [
     {name:'P2P-file-transfer', language:'JavaScript', stars:0, fork:false, description:'P2P file transfer using WebRTC', updated_at:'2026-01-01T00:00:00Z'},
-    {name:'GC_quant-Sisyphus', language:'Jupyter Notebook', stars:0, fork:false, description:"Working repo for GC Tech'26 — high-prep quant problem statement", updated_at:'2025-11-01T00:00:00Z'},
-    {name:'BEC-108-Course-project', language:null, stars:0, fork:false, description:'Course project on homology modelling (Bioinformatics)', updated_at:'2025-10-01T00:00:00Z'},
-    {name:'BEC-108-PCA', language:'Python', stars:0, fork:false, description:'BEC-108 coursework', updated_at:'2025-10-01T00:00:00Z'},
-    {name:'BEC-108-HMM', language:'Jupyter Notebook', stars:0, fork:false, description:'BEC-108 coursework', updated_at:'2025-10-01T00:00:00Z'},
-    {name:'GIS', language:null, stars:0, fork:false, description:'Proposal for ISRO Hackathon 2025', updated_at:'2025-09-01T00:00:00Z'},
-    {name:'Steganography', language:'Python', stars:0, fork:false, description:'PHC-303 course project on audio steganography', updated_at:'2025-08-01T00:00:00Z'},
-    {name:'Plots-for-Report-on-Ferromagnetism', language:null, stars:0, fork:false, description:'Plots for a report on ferromagnetism', updated_at:'2025-06-01T00:00:00Z'}
+    {name:'Warehouse-Automation', language:'Python', stars:0, fork:false, description:"Flipkart Grid 6.0 Robotics Challenge", updated_at:'2025-10-01T00:00:00Z'},
+    {name:'FidelFolio_DL', language:'Python', stars:0, fork:false, description:'Financial Time Series Forecasting Pipeline', updated_at:'2025-04-01T00:00:00Z'}
   ];
 
   function timeAgo(dateStr){
