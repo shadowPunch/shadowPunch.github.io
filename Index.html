@@ -1,329 +1,1226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shyam-24o7</title>
-<meta name="description" content="Writing about computer architecture, hardware acceleration and the mathematics of efficient computation">
-
-<!-- Google Fonts: JetBrains Mono + Inter -->
+<title>Nithish Ravikkumar — AI / ML Engineer</title>
+<meta name="description" content="Nithish Ravikkumar — Engineering Physics undergrad at IIT Roorkee building real-time perception, retrieval and control systems: voice agents, edge AI, robotics, FPGA deployment.">
+<meta property="og:title" content="Nithish Ravikkumar — AI / ML Engineer">
+<meta property="og:description" content="AI systems that have to survive contact with the real world: phone lines, FPGAs, rovers, drones.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0E13'/%3E%3Cpath d='M2 18 L9 18 L12 8 L16 24 L19 14 L22 18 L30 18' fill='none' stroke='%23FFB454' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     TOKENS
+  ========================================================= */
+  :root{
+    --ink:        #0A0E13;
+    --panel:      #11161D;
+    --panel-2:    #161D26;
+    --line:       #232B35;
+    --line-soft:  #1A2129;
+    --amber:      #FFB454;
+    --cyan:       #3DD9C3;
+    --paper:      #EDF1F5;
+    --muted:      #8993A1;
+    --muted-2:    #5C6675;
 
-<!-- KaTeX -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+    --f-display: 'Space Grotesk', sans-serif;
+    --f-body:    'Inter', sans-serif;
+    --f-mono:    'JetBrains Mono', monospace;
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-RR8ZR3TD8C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RR8ZR3TD8C');
-</script>
+    --maxw: 1180px;
+    --pad: clamp(20px, 5vw, 64px);
+  }
 
-<!-- Theme CSS -->
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--f-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--amber); color:var(--ink); }
 
-<link rel="stylesheet" href="/css/style.css">
+  :focus-visible{
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-left:var(--pad);
+    padding-right:var(--pad);
+  }
 
-<meta name="generator" content="Hexo 8.1.1"></head>
+  section{ position:relative; }
+
+  /* recurring "calibration mark" eyebrow — the one structural motif reused everywhere */
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--f-mono);
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 14px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:14px;
+    height:2px;
+    background:var(--amber);
+    display:inline-block;
+  }
+
+  h1,h2,h3{
+    font-family:var(--f-display);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  .section-title{
+    font-size:clamp(1.7rem, 3vw, 2.4rem);
+    color:var(--paper);
+    margin-bottom:1rem;
+    max-width: 720px;
+  }
+  .section-sub{
+    color:var(--muted);
+    font-size:1rem;
+    max-width:580px;
+    margin-bottom:2.6rem;
+  }
+
+  .btn{
+    font-family:var(--f-mono);
+    font-size:0.82rem;
+    letter-spacing:0.04em;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 20px;
+    border-radius:6px;
+    border:1px solid var(--line);
+    transition:border-color .2s ease, transform .2s ease, background .2s ease;
+    cursor:pointer;
+    background:transparent;
+  }
+  .btn:hover{ border-color:var(--amber); transform:translateY(-2px); }
+  .btn--solid{ background:var(--amber); color:var(--ink); border-color:var(--amber); }
+  .btn--solid:hover{ background:#ffc579; border-color:#ffc579; }
+
+  .chip{
+    font-family:var(--f-mono);
+    font-size:0.72rem;
+    letter-spacing:0.03em;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:5px 10px;
+    white-space:nowrap;
+  }
+
+  /* reveal-on-scroll */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* =========================================================
+     NAV
+  ========================================================= */
+  header.nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    background:rgba(10,14,19,0.7);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:64px;
+  }
+  .logo{
+    font-family:var(--f-mono);
+    font-weight:500;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .logo-dot{ width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 8px var(--amber); }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-family:var(--f-mono);
+    font-size:0.8rem;
+    letter-spacing:0.02em;
+    color:var(--muted);
+  }
+  .nav-links a{ transition:color .2s ease; position:relative; }
+  .nav-links a:hover{ color:var(--paper); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .nav-cta .btn{ padding:9px 16px; }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+  .nav-toggle span{ width:20px; height:2px; background:var(--paper); display:block; }
+  .nav-mobile{
+    display:none;
+    flex-direction:column;
+    gap:18px;
+    padding:8px var(--pad) 28px;
+    font-family:var(--f-mono);
+    font-size:0.9rem;
+    border-top:1px solid var(--line-soft);
+  }
+  .nav-mobile.open{ display:flex; }
+
+  @media (max-width: 760px){
+    .nav-links{ display:none; }
+    .nav-cta .btn:not(.btn--solid){ display:none; }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* =========================================================
+     HERO
+  ========================================================= */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:64px;
+    overflow:hidden;
+    background-image:
+      repeating-linear-gradient(0deg, var(--line-soft) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, var(--line-soft) 0 1px, transparent 1px 64px);
+    background-position:center;
+  }
+  .hero canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.85;
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+  }
+  .hero-kicker{
+    font-family:var(--f-mono);
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-kicker .pulse{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 0 0 rgba(61,217,195,0.6);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(61,217,195,0.5); }
+    70%{ box-shadow:0 0 0 9px rgba(61,217,195,0); }
+    100%{ box-shadow:0 0 0 0 rgba(61,217,195,0); }
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 8vw, 5.6rem);
+    line-height:0.98;
+    color:var(--paper);
+  }
+  .hero-tagline{
+    font-family:var(--f-display);
+    font-weight:500;
+    font-size:clamp(1.15rem, 2.4vw, 1.65rem);
+    color:var(--paper);
+    max-width:680px;
+    margin-top:22px;
+    line-height:1.35;
+  }
+  .hero-tagline em{
+    font-style:normal;
+    color:var(--amber);
+  }
+  .hero-desc{
+    max-width:540px;
+    color:var(--muted);
+    margin-top:18px;
+    font-size:1rem;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:34px;
+  }
+  .hero-readout{
+    position:absolute;
+    right:var(--pad);
+    bottom:28px;
+    z-index:2;
+    font-family:var(--f-mono);
+    font-size:0.72rem;
+    color:var(--muted-2);
+    text-align:right;
+    display:none;
+  }
+  @media (hover:hover) and (min-width:900px){
+    .hero-readout{ display:block; }
+  }
+  .hero-readout span{ color:var(--cyan); }
+  .scroll-cue{
+    position:absolute;
+    left:var(--pad);
+    bottom:28px;
+    z-index:2;
+    font-family:var(--f-mono);
+    font-size:0.72rem;
+    color:var(--muted-2);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .scroll-cue .ln{ width:1px; height:26px; background:var(--muted-2); animation:scrolldown 1.8s infinite; }
+  @keyframes scrolldown{ 0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;} }
+
+  /* =========================================================
+     TICKER
+  ========================================================= */
+  .ticker{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:16px 0;
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:ticker 38s linear infinite;
+  }
+  .ticker:hover .ticker-track{ animation-play-state:paused; }
+  @keyframes ticker{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  .ticker-item{
+    font-family:var(--f-mono);
+    font-size:0.82rem;
+    color:var(--muted);
+    padding:0 28px;
+    border-right:1px solid var(--line);
+    display:inline-flex;
+    align-items:center;
+  }
+  .ticker-item b{ color:var(--paper); font-weight:500; margin-right:6px; }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation:none; }
+    .ticker{ overflow-x:auto; }
+  }
+
+  /* =========================================================
+     GENERIC SECTION SPACING
+  ========================================================= */
+  .pad-section{ padding:108px 0; }
+  @media (max-width:760px){ .pad-section{ padding:76px 0; } }
+
+  /* =========================================================
+     ABOUT / STACK
+  ========================================================= */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-body p{ color:var(--muted); font-size:1.04rem; margin:0 0 16px; max-width:560px; }
+  .about-body strong{ color:var(--paper); font-weight:500; }
+  .about-meta{
+    margin-top:28px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-family:var(--f-mono);
+    font-size:0.82rem;
+    color:var(--muted-2);
+  }
+  .about-meta b{ color:var(--cyan); font-weight:500; }
+
+  .stack-col{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .stack-card{
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--panel);
+    padding:20px 22px;
+    position:relative;
+  }
+  .stack-card::before, .stack-card::after{
+    content:'';
+    position:absolute;
+    width:9px; height:9px;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+    top:-1px; left:-1px;
+  }
+  .stack-card::after{
+    border-top:none; border-left:none;
+    border-bottom:1px solid var(--line);
+    border-right:1px solid var(--line);
+    top:auto; left:auto;
+    bottom:-1px; right:-1px;
+  }
+  .stack-card h4{
+    font-family:var(--f-mono);
+    font-size:0.74rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin:0 0 12px;
+    font-weight:500;
+  }
+  .stack-chips{ display:flex; flex-wrap:wrap; gap:8px; }
+
+  @media (max-width:880px){
+    .about-grid{ grid-template-columns:1fr; gap:40px; }
+  }
+
+  /* =========================================================
+     FLIGHT LOG / EXPERIENCE
+  ========================================================= */
+  .log-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:linear-gradient(180deg, var(--panel), var(--panel-2));
+    padding:36px clamp(20px,4vw,44px);
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap:36px;
+  }
+  .log-meta{ font-family:var(--f-mono); }
+  .log-role{ color:var(--paper); font-family:var(--f-display); font-size:1.3rem; font-weight:600; margin-bottom:6px; }
+  .log-org{ color:var(--cyan); font-size:0.92rem; margin-bottom:14px; }
+  .log-period{ color:var(--muted-2); font-size:0.78rem; letter-spacing:0.04em; }
+  .log-tag{
+    display:inline-block;
+    margin-top:14px;
+    font-size:0.7rem;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:4px 8px;
+    color:var(--muted);
+  }
+  .log-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+  .log-list li{
+    color:var(--muted);
+    padding-left:22px;
+    position:relative;
+    font-size:1rem;
+  }
+  .log-list li::before{
+    content:'';
+    position:absolute;
+    left:0; top:9px;
+    width:9px; height:1px;
+    background:var(--amber);
+  }
+  .log-list strong{ color:var(--paper); font-weight:500; }
+
+  @media (max-width:720px){
+    .log-card{ grid-template-columns:1fr; padding:28px 22px; }
+  }
+
+  /* =========================================================
+     PROJECTS
+  ========================================================= */
+  .filter-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:40px;
+  }
+  .filter-btn{
+    font-family:var(--f-mono);
+    font-size:0.76rem;
+    letter-spacing:0.03em;
+    color:var(--muted);
+    background:none;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:8px 16px;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .filter-btn:hover{ color:var(--paper); border-color:var(--muted-2); }
+  .filter-btn.active{
+    color:var(--ink);
+    background:var(--amber);
+    border-color:var(--amber);
+  }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  @media (max-width:880px){ .project-grid{ grid-template-columns:1fr; } }
+
+  .pcard{
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--panel);
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:border-color .25s ease, transform .25s ease;
+    position:relative;
+  }
+  .pcard:hover{ border-color:var(--cyan); transform:translateY(-3px); }
+  .pcard.hidden{ display:none; }
+  .pcard-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    font-family:var(--f-mono);
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+  }
+  .pcard-cat{ color:var(--cyan); }
+  .pcard-period{ color:var(--muted-2); }
+  .pcard h3{ font-size:1.18rem; color:var(--paper); font-weight:600; }
+  .pcard p{ color:var(--muted); font-size:0.95rem; margin:0; flex-grow:1; }
+  .pcard-metrics{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pcard-foot{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:6px;
+    padding-top:14px;
+    border-top:1px solid var(--line-soft);
+  }
+  .pcard-link{
+    font-family:var(--f-mono);
+    font-size:0.78rem;
+    color:var(--paper);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:color .2s ease, gap .2s ease;
+  }
+  .pcard-link:hover{ color:var(--amber); gap:9px; }
+  .pcard-star{ font-family:var(--f-mono); font-size:0.74rem; color:var(--muted-2); }
+
+  /* =========================================================
+     RESULTS
+  ========================================================= */
+  .results-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap:56px;
+  }
+  .results-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+  .results-list li{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .res-rank{
+    font-family:var(--f-mono);
+    color:var(--amber);
+    font-size:0.85rem;
+    min-width:64px;
+  }
+  .res-name{ color:var(--paper); font-size:0.98rem; }
+  .res-result{
+    font-family:var(--f-mono);
+    color:var(--muted);
+    font-size:0.85rem;
+    text-align:right;
+    white-space:nowrap;
+  }
+  .teams-col{ display:flex; flex-direction:column; gap:16px; }
+  .team-card{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:18px 20px;
+    background:var(--panel);
+  }
+  .team-card h4{
+    font-family:var(--f-mono);
+    font-size:0.85rem;
+    color:var(--cyan);
+    margin:0 0 6px;
+    font-weight:500;
+  }
+  .team-card span{ color:var(--muted-2); font-family:var(--f-mono); font-size:0.7rem; }
+  .team-card p{ color:var(--muted); font-size:0.88rem; margin:8px 0 0; }
+
+  @media (max-width:880px){ .results-grid{ grid-template-columns:1fr; gap:36px; } }
+
+  /* =========================================================
+     LIVE REPO FEED
+  ========================================================= */
+  .feed-panel{
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--panel);
+  }
+  .feed-bar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+    background:var(--panel-2);
+  }
+  .feed-bar .dot{ width:9px; height:9px; border-radius:50%; }
+  .feed-bar .dot:nth-child(1){ background:#FF6B6B; }
+  .feed-bar .dot:nth-child(2){ background:#FFB454; }
+  .feed-bar .dot:nth-child(3){ background:#3DD9C3; }
+  .feed-bar span{
+    margin-left:10px;
+    font-family:var(--f-mono);
+    font-size:0.74rem;
+    color:var(--muted-2);
+  }
+  .feed-body{
+    max-height:380px;
+    overflow-y:auto;
+  }
+  .feed-row{
+    display:grid;
+    grid-template-columns: 1.6fr 0.8fr 0.6fr 0.9fr;
+    gap:14px;
+    align-items:center;
+    padding:14px 18px;
+    border-bottom:1px solid var(--line-soft);
+    font-family:var(--f-mono);
+    font-size:0.82rem;
+  }
+  .feed-row:last-child{ border-bottom:none; }
+  .feed-name{ color:var(--paper); }
+  .feed-name a:hover{ color:var(--amber); }
+  .feed-desc{ color:var(--muted-2); font-size:0.74rem; font-family:var(--f-body); grid-column:1; margin-top:2px; }
+  .feed-lang{ color:var(--cyan); font-size:0.76rem; }
+  .feed-stars{ color:var(--muted); font-size:0.76rem; }
+  .feed-updated{ color:var(--muted-2); font-size:0.74rem; text-align:right; }
+  .feed-loading{ padding:24px 18px; color:var(--muted-2); font-family:var(--f-mono); font-size:0.82rem; }
+
+  @media (max-width:700px){
+    .feed-row{ grid-template-columns:1fr 1fr; row-gap:4px; }
+    .feed-updated{ text-align:left; }
+    .feed-desc{ grid-column:1 / -1; }
+  }
+
+  /* =========================================================
+     CONTACT / FOOTER
+  ========================================================= */
+  .contact{
+    text-align:center;
+    padding-top:40px;
+  }
+  .contact h2{
+    font-size:clamp(1.8rem, 4.5vw, 3rem);
+    max-width:760px;
+    margin:0 auto 28px;
+  }
+  .contact-email{
+    font-family:var(--f-mono);
+    font-size:clamp(1.1rem, 3vw, 1.5rem);
+    color:var(--amber);
+    display:inline-block;
+    margin-bottom:36px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .contact-email:hover{ border-color:var(--amber); }
+  .contact-links{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  footer{
+    border-top:1px solid var(--line-soft);
+    margin-top:90px;
+    padding:26px var(--pad);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:var(--f-mono);
+    font-size:0.74rem;
+    color:var(--muted-2);
+  }
+  .footer-status{ display:flex; align-items:center; gap:8px; }
+  .footer-status .dot{ width:6px; height:6px; border-radius:50%; background:var(--cyan); }
+</style>
+</head>
 <body>
-  <!-- Scroll progress bar -->
-  <div id="scroll-progress"></div>
 
-  <header class="site-header">
-  <div class="container header-inner">
-    <a class="site-title" href="/">Shyam-24o7</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-    <nav class="site-nav" id="site-nav">
-      <a href="/" class=&#34;active&#34;>Home</a>
-      <a href="/archives">Archives</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+<header class="nav">
+  <div class="wrap nav-row">
+    <a href="#top" class="logo"><span class="logo-dot"></span>N.RAVIKKUMAR</a>
+    <nav class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#log">Log</a>
+      <a href="#work">Work</a>
+      <a href="#repos">Repos</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <button class="search-btn" id="search-btn" aria-label="Search posts" title="Search (Ctrl+K)">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    </button>
+    <div class="nav-cta">
+      <a class="btn" href="./resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#profile">Profile</a>
+    <a href="#log">Log</a>
+    <a href="#work">Work</a>
+    <a href="#repos">Repos</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+    <a href="./resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
   </div>
 </header>
 
+<main id="top">
 
-  <!-- Fixed dark mode toggle — outside header so position:fixed works correctly -->
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light mode">
-    <span class="theme-icon">🌙</span>
-  </button>
-
-  <!-- Search overlay -->
-  <div class="search-overlay" id="search-overlay" aria-hidden="true">
-    <div class="search-modal" role="dialog" aria-label="Search posts">
-      <div class="search-input-row">
-        <svg class="search-icon-inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Search posts, tags, content..." autocomplete="off" spellcheck="false">
-        <button class="search-close-btn" id="search-close" aria-label="Close">&#x2715;</button>
-      </div>
-      <div class="search-results" id="search-results">
-        <p class="search-hint">Start typing to search &nbsp;·&nbsp; <kbd>Esc</kbd> to close</p>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <canvas id="scope"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-kicker"><span class="pulse"></span>SIGNAL ACQUIRED · ROORKEE, INDIA</div>
+      <h1>NITHISH<br>RAVIKKUMAR</h1>
+      <p class="hero-tagline">AI that ships where it's hardest to ship — on <em>phone lines</em>, <em>FPGAs</em>, <em>rovers</em>, and <em>drones</em>.</p>
+      <p class="hero-desc">Engineering Physics undergrad at IIT Roorkee, building real-time perception, retrieval and control systems — then fitting them onto whatever compute budget they actually have to run on.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn--solid">See the builds ↓</a>
+        <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        <a href="mailto:nithish232005@gmail.com" class="btn">Email ↗</a>
       </div>
     </div>
+    <div class="scroll-cue"><span class="ln"></span>SCROLL</div>
+    <div class="hero-readout">CH1 <span id="ro-x">●</span> AMP &nbsp; CH2 <span id="ro-y">●</span> FREQ<br>STATUS: <span>STABLE</span></div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack"></div>
   </div>
 
-  <main class="site-main">
-    <div class="container">
-      
-      <div class="content-grid">
-        <aside class="sidebar">
-          <!-- About -->
-<div class="sidebar-section">
-  <h3 class="sidebar-title">About</h3>
-  <p class="sidebar-about">
-    Hi, I'm <strong>Shyam-24o7</strong> a undergrad student @ IIT Roorkee who is passionate about Physics,
-    Hardware acceleration, Quantum Computing and the mathematics behind it all.
-  </p>
-</div>
+  <!-- ============ PROFILE / ABOUT ============ -->
+  <section class="pad-section" id="profile">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="reveal">
+          <p class="eyebrow">Profile</p>
+          <h2 class="section-title">Physics first. Systems that ship, second nature.</h2>
+          <div class="about-body">
+            <p>I'm a third-year <strong>Engineering Physics</strong> student at <strong>IIT Roorkee</strong>, which means I arrived at AI through control theory and signal processing rather than the other way round. That shows up in how I build: optical flow running on an FPGA's DPU, a voice agent that has to answer in under a second, a document pipeline that has to run on a laptop CPU.</p>
+            <p>The constraint is usually the interesting part. I work across the stack — model, pipeline, deployment — and I'd rather ship something at 70% accuracy on real hardware than 99% in a notebook.</p>
+          </div>
+          <div class="about-meta">
+            <div><b>Education —</b> B.Tech, Engineering Physics, IIT Roorkee · 2023–2027</div>
+            <div><b>Based in —</b> Roorkee, Uttarakhand, India</div>
+            <div><b>Currently —</b> Open to AI/ML engineering internships &amp; collaborations</div>
+          </div>
+        </div>
 
-<!-- Recent Posts -->
-<div class="sidebar-section">
-  <h3 class="sidebar-title">Recent Posts</h3>
-  <ul class="sidebar-posts">
-    
-    <li>
-      <a href="/2026/03/25/ahead-of-the-pipeline-a-deep-dive-into-prefetching/">Ahead of the Pipeline-I : A Deep Dive into Prefetching Techniques for CPU</a>
-    </li>
-    
-    <li>
-      <a href="/2026/03/22/inside-the-gpu-cuda-memory-architecture-and-hierarchy/">Inside the GPU: CUDA, Threads, and the Architecture That Makes It All Work</a>
-    </li>
-    
-    <li>
-      <a href="/2026/03/04/quantization-pruning-structured-survey-model-compression/">Quantization and Pruning: A Structured Survey of Model Compression</a>
-    </li>
-    
-  </ul>
-</div>
-
-<!-- Tag Cloud -->
-
-<div class="sidebar-section">
-  <h3 class="sidebar-title">Tags</h3>
-  <div class="tag-cloud">
-    
-    <a href="/tags/GPU/" class="tag-pill">
-      GPU<span class="tag-count">1</span>
-    </a>
-    
-    <a href="/tags/CUDA/" class="tag-pill">
-      CUDA<span class="tag-count">1</span>
-    </a>
-    
-    <a href="/tags/Hardware/" class="tag-pill">
-      Hardware<span class="tag-count">4</span>
-    </a>
-    
-    <a href="/tags/Computer-Architecture/" class="tag-pill">
-      Computer Architecture<span class="tag-count">3</span>
-    </a>
-    
-    <a href="/tags/AI-ML/" class="tag-pill">
-      AI/ML<span class="tag-count">1</span>
-    </a>
-    
-    <a href="/tags/Quantization/" class="tag-pill">
-      Quantization<span class="tag-count">1</span>
-    </a>
-    
-  </div>
-</div>
-
-
-
-        </aside>
-        <div class="main-content">
-          <!-- ═══════════════════════════════════════════
-     HERO
-     ═══════════════════════════════════════════ -->
-<section class="hero" data-reveal>
-  <div class="hero-eyebrow">// Shyam-24o7.github.io</div>
-
-  <h1 class="hero-title">Shyam-24o7</h1>
-
-  <p class="hero-subtitle">Writing about</p>
-  <div class="hero-topics">
-    <span class="hero-topic">Hardware Acceleration</span>
-    <span class="hero-topic">Computer Architecture</span>
-    <span class="hero-topic">GPU Computing</span>
-    <span class="hero-topic">FPGA Design</span>
-    <span class="hero-topic">Quantum Computing</span>
-    <span class="hero-topic">Mathematics</span>
-  </div>
-
-  <p class="hero-desc">Writing about computer architecture, hardware acceleration and the mathematics of efficient computation</p>
-
-  <div class="hero-actions">
-    <a href="/archives" class="btn-primary">Browse Archives</a>
-    <a href="/about"    class="btn-ghost">About me</a>
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Posts</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">6</span>
-      <span class="stat-label">Tags</span>
-    </div>
-    <div class="stat">
-      
-      <span class="stat-num">1</span>
-      <span class="stat-label">Years</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     LATEST POSTS
-     ═══════════════════════════════════════════ -->
-<section class="latest-section">
-  <div class="section-header">
-    <h2 class="section-title">Latest</h2>
-    <a href="/archives" class="section-link">All posts &rarr;</a>
-  </div>
-
-  <div class="post-list">
-    
-      <article class="post-item">
-  <header class="post-item-header">
-    <h2 class="post-item-title">
-      <a href="/2026/03/25/ahead-of-the-pipeline-a-deep-dive-into-prefetching/">Ahead of the Pipeline-I : A Deep Dive into Prefetching Techniques for CPU</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2026-03-24T18:30:00.000Z">2026-03-25</time>
-      
-      <span class="post-tags-inline">
-        
-        <a href="/tags/Hardware/" class="tag-pill">Hardware</a>
-        
-        <a href="/tags/Computer-Architecture/" class="tag-pill">Computer Architecture</a>
-        
-      </span>
-      
-    </div>
-  </header>
-  <div class="post-excerpt">
-    
-      Modern processors are only as fast as the data they can access. This post goes deep on CPU prefetching — from the physical hardware units and their internal registers, to pattern recognition algorithms, cache pollution, and the full taxonomy of prefetcher types across hardware, software, and thread-level approaches.
-    
-  </div>
-  <a href="/2026/03/25/ahead-of-the-pipeline-a-deep-dive-into-prefetching/" class="read-more">Read more &rarr;</a>
-</article>
-
-    
-      <article class="post-item">
-  <header class="post-item-header">
-    <h2 class="post-item-title">
-      <a href="/2026/03/22/inside-the-gpu-cuda-memory-architecture-and-hierarchy/">Inside the GPU: CUDA, Threads, and the Architecture That Makes It All Work</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2026-03-21T18:30:00.000Z">2026-03-22</time>
-      
-      <span class="post-tags-inline">
-        
-        <a href="/tags/GPU/" class="tag-pill">GPU</a>
-        
-        <a href="/tags/CUDA/" class="tag-pill">CUDA</a>
-        
-        <a href="/tags/Hardware/" class="tag-pill">Hardware</a>
-        
-        <a href="/tags/Computer-Architecture/" class="tag-pill">Computer Architecture</a>
-        
-      </span>
-      
-    </div>
-  </header>
-  <div class="post-excerpt">
-    
-      GPUs aren't magic. They're just a very specific bet about parallelism — and once you understand the hardware underneath CUDA, every design decision starts making sense.
-    
-  </div>
-  <a href="/2026/03/22/inside-the-gpu-cuda-memory-architecture-and-hierarchy/" class="read-more">Read more &rarr;</a>
-</article>
-
-    
-      <article class="post-item">
-  <header class="post-item-header">
-    <h2 class="post-item-title">
-      <a href="/2026/03/04/quantization-pruning-structured-survey-model-compression/">Quantization and Pruning: A Structured Survey of Model Compression</a>
-    </h2>
-    <div class="post-meta">
-      <time datetime="2026-03-03T18:30:00.000Z">2026-03-04</time>
-      
-      <span class="post-tags-inline">
-        
-        <a href="/tags/Hardware/" class="tag-pill">Hardware</a>
-        
-        <a href="/tags/AI-ML/" class="tag-pill">AI/ML</a>
-        
-        <a href="/tags/Quantization/" class="tag-pill">Quantization</a>
-        
-      </span>
-      
-    </div>
-  </header>
-  <div class="post-excerpt">
-    
-      Models keep getting bigger. The hardware they run on doesn't. Quantization and pruning are the two main tools for closing that gap — but both are more hardware-dependent than people give them credit for.
-    
-  </div>
-  <a href="/2026/03/04/quantization-pruning-structured-survey-model-compression/" class="read-more">Read more &rarr;</a>
-</article>
-
-    
-  </div>
-</section>
-
+        <div class="stack-col reveal">
+          <div class="stack-card">
+            <h4>// Language &amp; Learning</h4>
+            <div class="stack-chips">
+              <span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span>
+              <span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Scikit-Learn</span>
+              <span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Hugging Face</span>
+              <span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">SciPy</span>
+              <span class="chip">Matplotlib</span><span class="chip">Seaborn</span>
+            </div>
+          </div>
+          <div class="stack-card">
+            <h4>// Robotics &amp; Hardware</h4>
+            <div class="stack-chips">
+              <span class="chip">ROS2</span><span class="chip">Gazebo</span><span class="chip">Mavlink</span>
+              <span class="chip">Ardupilot</span><span class="chip">C++ / Arduino</span><span class="chip">ESP32</span>
+              <span class="chip">Altium Designer</span>
+            </div>
+          </div>
+          <div class="stack-card">
+            <h4>// Infrastructure &amp; Tooling</h4>
+            <div class="stack-chips">
+              <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">GCP</span>
+              <span class="chip">OpenCV</span><span class="chip">Pillow</span><span class="chip">Whisper</span>
+              <span class="chip">FreeSwitch</span><span class="chip">ONNX</span>
+            </div>
+          </div>
         </div>
       </div>
-      
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2026 shadowPunch</p>
-  </div>
+  <!-- ============ FLIGHT LOG / EXPERIENCE ============ -->
+  <section class="pad-section" id="log">
+    <div class="wrap">
+      <p class="eyebrow reveal">Flight Log</p>
+      <h2 class="section-title reveal">One entry so far. It was a real deployment.</h2>
+      <p class="section-sub reveal">The most recent line in the logbook — an internship that went from prototype to a live, telephony-connected agent.</p>
+
+      <div class="log-card reveal">
+        <div class="log-meta">
+          <div class="log-role">AI Developer Intern</div>
+          <div class="log-org">Aviostack Pvt. Ltd.</div>
+          <div class="log-period">MAY 2025 – JUN 2025</div>
+          <div class="log-tag">REMOTE</div>
+        </div>
+        <ul class="log-list">
+          <li>Prototyped and deployed an <strong>audio-modal AI agent</strong> acting as a call-center assistant for micro-warehouse e-commerce deliveries.</li>
+          <li>Built the end-to-end pipeline — <strong>STT/TTS, voice-activity detection, intent classification and RAG retrieval</strong> — wired into telephony infrastructure, holding real-time query resolution to <strong>≤0.8s response latency</strong>.</li>
+          <li>Re-architected the cloud deployment (GCP) around <strong>open-source LLM and speech components</strong> with rule-based routing to cut token usage — bringing operating cost down by <strong>over 60%</strong> versus commercial API equivalents.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED PROJECTS ============ -->
+  <section class="pad-section" id="work">
+    <div class="wrap">
+      <p class="eyebrow reveal">Featured Builds</p>
+      <h2 class="section-title reveal">Selected systems, end to end</h2>
+      <p class="section-sub reveal">Thirteen of the builds I'd point you to first — the rest live in the raw feed further down the page.</p>
+
+      <div class="filter-row reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI &amp; Language</button>
+        <button class="filter-btn" data-filter="robotics">Robotics &amp; Control</button>
+        <button class="filter-btn" data-filter="vision">Computer Vision</button>
+        <button class="filter-btn" data-filter="physics">Physics &amp; Simulation</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid"><!-- injected by JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ MISSION RESULTS ============ -->
+  <section class="pad-section" id="results">
+    <div class="wrap">
+      <p class="eyebrow reveal">Mission Results</p>
+      <h2 class="section-title reveal">Where the builds got tested</h2>
+      <p class="section-sub reveal">Competitions, hackathons and exams the work (and I) got measured against.</p>
+
+      <div class="results-grid">
+        <ul class="results-list reveal">
+          <li><span class="res-rank">RANK 05</span><span class="res-name">International Space Drone Challenge (ISDC) 2025</span><span class="res-result">International</span></li>
+          <li><span class="res-rank">RANK 10</span><span class="res-name">International Rover Challenge (IRC) 2025</span><span class="res-result">International</span></li>
+          <li><span class="res-rank">SEMI-F</span><span class="res-name">Flipkart Grid 6.0 — Robotics Challenge</span><span class="res-result">Warehouse Automation</span></li>
+          <li><span class="res-rank">RUNNER-UP</span><span class="res-name">Syntax Error X 2023</span><span class="res-result">National hackathon</span></li>
+          <li><span class="res-rank">AIR 1992</span><span class="res-name">JEE Mains 2023</span><span class="res-result">Top 0.2%</span></li>
+          <li><span class="res-rank">AIR 3282</span><span class="res-name">JEE Advanced 2023</span><span class="res-result">—</span></li>
+          <li><span class="res-rank">AIR 178</span><span class="res-name">KVPY SA</span><span class="res-result">—</span></li>
+          <li><span class="res-rank">SCHOLAR</span><span class="res-name">NTSE</span><span class="res-result">—</span></li>
+        </ul>
+
+        <div class="teams-col reveal">
+          <div class="team-card">
+            <h4>ROBOCON</h4>
+            <span>CORE MEMBER · ELECTRONICS &amp; ROBOTICS</span>
+            <p>ML-based altitude-aware path planning for a Mars rover prototype, plus real-time object detection and navigation comms.</p>
+          </div>
+          <div class="team-card">
+            <h4>ARIES</h4>
+            <span>CORE MEMBER · ROBOTICS &amp; DRONES</span>
+            <p>Simulated and tuned UAV flight-control algorithms; competed at the MathWorks Minidrone Challenge, IISc Bangalore.</p>
+          </div>
+          <div class="team-card">
+            <h4>NSS IIT ROORKEE</h4>
+            <span>VOLUNTEER · EDITORIAL CELL</span>
+            <p>Curated content for campus awareness campaigns and ran NSS's social presence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIVE REPO FEED ============ -->
+  <section class="pad-section" id="repos">
+    <div class="wrap">
+      <p class="eyebrow reveal">Live From GitHub</p>
+      <h2 class="section-title reveal">Everything else, pulled straight from the source</h2>
+      <p class="section-sub reveal">This list is fetched live from <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" style="color:var(--cyan); border-bottom:1px solid var(--line);">github.com/shadowPunch</a> — it updates itself the moment a new repo goes up.</p>
+
+      <div class="feed-panel reveal">
+        <div class="feed-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span>~/shadowPunch — repositories --sort=updated</span>
+        </div>
+        <div class="feed-body" id="feedBody">
+          <div class="feed-loading">// fetching repository data…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="pad-section contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="justify-content:center;">Sign Off</p>
+      <h2 class="reveal">Building something that has to survive contact with reality? Let's talk.</h2>
+      <a href="mailto:nithish232005@gmail.com" class="contact-email reveal">nithish232005@gmail.com</a>
+      <div class="contact-links reveal">
+        <a href="https://github.com/shadowPunch" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        <a href="./resume.pdf" target="_blank" rel="noopener" class="btn">Resume ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2026 Nithish Ravikkumar · Roorkee, Uttarakhand</span>
+  <span class="footer-status"><span class="dot"></span>STATUS: ONLINE</span>
 </footer>
 
+<script>
+(function(){
+  "use strict";
 
-  <!-- Scroll-to-top button -->
-  <button id="scroll-top" aria-label="Back to top">&#8593;</button>
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  <!-- Search index (embedded, no extra package needed) -->
-  <script>
-  window.__searchIndex = [{"title":"Inside the GPU: CUDA, Threads, and the Architecture That Makes It All Work","path":"/2026/03/22/inside-the-gpu-cuda-memory-architecture-and-hierarchy/","date":"2026-03-22","tags":["GPU","CUDA","Hardware","Computer Architecture"],"excerpt":"Thousands of threads. One instruction. This is how GPUs think. If you’ve read my previous post on tradeoffs in hardware, you already know the core intuition: CPUs optimize for latency, GPUs optimize for throughput. One fat sports car vs hundreds of bicycles. That framing is clean, but it’s also a bit unsatisfying once you start asking how . How exactly does a GPU achieve that throughput? What’s actually happening when you launch a CUDA kernel? What does “thousands of threads” even mean at the ha"},{"title":"Ahead of the Pipeline-I : A Deep Dive into Prefetching Techniques for CPU","path":"/2026/03/25/ahead-of-the-pipeline-a-deep-dive-into-prefetching/","date":"2026-03-25","tags":["Hardware","Computer Architecture"],"excerpt":"Your CPU can execute a billion instructions per second. Then it touches memory. And waits. Before anything else: this post covers CPU prefetching only . The GPU&#x2F;CUDA post briefly referenced memory prefetching and promised a deeper treatment and that part is coming in Part II. The GPU’s approach to the same latency problem is architecturally different enough that collapsing both into one post would do neither justice, and honestly the CPU side alone deserves a post entirely on its own. Part "},{"title":"Quantization and Pruning: A Structured Survey of Model Compression","path":"/2026/03/04/quantization-pruning-structured-survey-model-compression/","date":"2026-03-04","tags":["Hardware","AI/ML","Quantization"],"excerpt":"The weights don’t lie — most of them are just dead weight. If there’s one thing that becomes obvious once you start thinking seriously about deploying neural networks, it’s that scale is a trap. The models that researchers celebrate for benchmark records are routinely too large to run usefully on anything that isn’t a server rack. Language models with hundreds of billions of parameters. Vision transformers that barely fit in GPU memory. And the gap between what research produces and what actual "},{"title":"Tradeoffs: The Core Essence of Hardware Optimization","path":"/2026/02/28/tradeoffs-core-essence-hardware-optimization/","date":"2026-02-28","tags":["Hardware","Computer Architecture"],"excerpt":"Everything in hardware is a negotiation — and that’s exactly why it’s beautiful. If there’s one thing studying computer architecture has genuinely rewired in how I think, it’s this: there is no perfect design . Every single hardware decision you make is a negotiation. You want more performance? Great….pay with power. Want to save area? Sure… watch your latency climb. Want to go faster? Hope you’re not memory-bound, because the memory wall does not care about your ambitions. And this isn’t some p"}];
-  </script>
-
-  
-<script src="/js/main.js"></script>
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: "$$",  right: "$$",  display: true  },
-            { left: "\\[", right: "\\]", display: true  },
-            { left: "$",   right: "$",   display: false },
-            { left: "\\(", right: "\\)", display: false }
-          ],
-          throwOnError: false
-        });
-      }
+  /* ---------------- nav mobile toggle ---------------- */
+  var navToggle = document.getElementById('navToggle');
+  var navMobile = document.getElementById('navMobile');
+  if(navToggle){
+    navToggle.addEventListener('click', function(){
+      navMobile.classList.toggle('open');
     });
-  </script>
+    navMobile.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ navMobile.classList.remove('open'); });
+    });
+  }
+
+  /* ---------------- scroll reveal ---------------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------------- ticker content ---------------- */
+  var stats = [
+    ['≤0.8s', 'VOICE AGENT RESPONSE LATENCY'],
+    ['72%', 'FASTER FPGA INFERENCE'],
+    ['0.78 → 0.31', 'BIAS SCORE REDUCTION'],
+    ['75%', 'SMALLER MODEL VIA INT8 QUANTIZATION'],
+    ['RANK 5', "ISDC'25 — INTERNATIONAL SPACE DRONE CHALLENGE"],
+    ['96.4%', 'BEST-MODEL FORECAST ACCURACY'],
+    ['90%+', 'ENTITY EXTRACTION ACCURACY'],
+    ['RANK 10', "IRC'25 — INTERNATIONAL ROVER CHALLENGE"],
+    ['60%+', 'OPERATING COST CUT VS COMMERCIAL APIS']
+  ];
+  function buildTicker(){
+    var html = '';
+    stats.forEach(function(s){
+      html += '<span class="ticker-item"><b>'+s[0]+'</b>'+s[1]+'</span>';
+    });
+    return html;
+  }
+  var tickerTrack = document.getElementById('tickerTrack');
+  if(tickerTrack){ tickerTrack.innerHTML = buildTicker() + buildTicker(); }
+
+  /* ---------------- project data + filtering ---------------- */
+  var projects = [
+    {
+      cat:'robotics vision', catLabel:'ROBOTICS & CONTROL', period:'MAR – SEP 2025',
+      title:'Optical Flow Estimation & Collision Prevention',
+      desc:"Collision-prevention system for autonomous vehicles pairing PWC-Net optical flow with YOLOv9T detection. A Time-to-Collision estimator (divergence + flow-magnitude heuristics, Echo State Network) predicts trajectory up to 300ms ahead at 30 FPS. Quantized, pruned and compiled with Vitis AI for an AMD Kria FPGA's DPU — built under Prof. Sparsh Mittal, ECE IITR, for the AMD Open Hardware Contest 2025.",
+      metrics:['300ms lookahead @ 30 FPS','72% lower inference time','Deployed on Kria DPU'],
+      repo:'https://github.com/shadowPunch/Optic-Flow-Estimation'
+    },
+    {
+      cat:'ai', catLabel:'AI & LANGUAGE', period:'SEP – OCT 2025',
+      title:'Bias Detection & Ground Truth Inference',
+      desc:'Bias-neutralization pipeline pairing a BERT token-level bias detector with a BART seq2seq editor, trained on the Wiki Neutrality Corpus plus multi-source news. NLI-based entailment checks across left/center/right outlets confirm the neutral rewrites keep their facts straight.',
+      metrics:['Bias score 0.78 → 0.31','0.84 SBERT similarity','85% entailment retention'],
+      repo:'https://github.com/shadowPunch/Ground-Truth-inference'
+    },
+    {
+      cat:'ai', catLabel:'AI & LANGUAGE', period:'JUL 2025',
+      title:'Document Distillation on Edge Compute',
+      desc:"A system that ingests large PDF collections and extracts ranked, structured insight against a user's stated need — built to run entirely on CPU. Hybrid retrieval (BM25 + sentence-transformer dense search) feeds an INT8-quantized ONNX Runtime pipeline. Built for the Adobe India Hackathon.",
+      metrics:['75% smaller model (INT8)','3x faster inference','≤10s per document'],
+      repo:'https://github.com/shadowPunch/Document-Distlllation-on-Edge-compute'
+    },
+    {
+      cat:'ai', catLabel:'AI & LANGUAGE', period:'2025',
+      title:'Static RAG Application',
+      desc:'A retrieval-augmented chatbot built on a static document corpus — the same RAG architecture later adapted into the Aviostack call-center deployment.',
+      metrics:['LangChain pipeline','Document-grounded answers'],
+      repo:'https://github.com/shadowPunch/Static-RAG-Application'
+    },
+    {
+      cat:'ai', catLabel:'AI & LANGUAGE', period:'APR 2025',
+      title:'Financial Time Series Forecasting',
+      desc:'Forecasting pipeline for the market-cap growth of Indian companies. Benchmarked ElasticNet, decision trees and LSTM variants against historical indicators, then used volatility clustering to segment sectoral risk for investment insight.',
+      metrics:['96.4% accuracy (best LSTM)','Sectoral risk segmentation'],
+      repo:'https://github.com/shadowPunch/FidelFolio_DL'
+    },
+    {
+      cat:'robotics', catLabel:'ROBOTICS & CONTROL', period:'JAN 2025',
+      title:'iRRT Path Planning for Terrain & Drone Navigation',
+      desc:'Extended Informed-RRT with octree-based spatial partitioning for collision-free navigation across a LiDAR-reconstructed 3D terrain. Elastic-band smoothing and a terrain-aware cost function penalize high-gradient, collision-prone paths. Built for ISDC\u201925 — placed 5th internationally.',
+      metrics:["Int'l Rank 5 — ISDC'25",'3D octree partitioning'],
+      repo:'https://github.com/shadowPunch/iRRT-based-path-planning'
+    },
+    {
+      cat:'physics', catLabel:'PHYSICS & SIMULATION', period:'OCT 2025',
+      title:'Monte Carlo Simulation of Nanofilm Deposition',
+      desc:'A Monte Carlo framework simulating nanofilm growth across five stochastic models — Random Deposition, Edwards–Wilkinson, KPZ, Ballistic Deposition and BKL — with temperature-dependent surface diffusion via Arrhenius kinetics and Metropolis acceptance, validated against theoretical scaling exponents in 1D and 2D.',
+      metrics:['5 stochastic growth models','1D + 2D validation'],
+      repo:'https://github.com/shadowPunch/Monte-Carlo-simulation-of-Nanofilm-Depostion'
+    },
+    {
+      cat:'physics', catLabel:'PHYSICS & SIMULATION', period:'MAR – APR 2026',
+      title:'Atmospheric Temperature Profiling',
+      desc:'A multi-source atmospheric analysis pipeline fusing radiosonde balloon soundings with ERA5 reanalysis NetCDF data across four seasonal profiles, generating Skew-T Log-P diagrams with parcel overlays and thermodynamic indices (CAPE, CIN, LCL, LFC).',
+      metrics:['4 seasonal profiles','CAPE / CIN / LCL / LFC'],
+      repo:'https://github.com/shadowPunch/Atmospheric-temperature-profile'
+    },
+    {
+      cat:'ai vision', catLabel:'AI & LANGUAGE', period:'SEP – OCT 2024',
+      title:'Warehouse Automation — Flipkart Grid 6.0',
+      desc:'A package-sorting pipeline combining image segmentation with OCR and fine-tuned small language models (NuExtract, Gemma-2B) to pull customer entities off noisy, dynamically scanned receipts. Semi-finalist, Flipkart Grid 6.0.',
+      metrics:['90%+ extraction accuracy','Semi-finalist, Grid 6.0'],
+      repo:'https://github.com/shadowPunch/Warehouse-Automation'
+    },
+    {
+      cat:'vision', catLabel:'COMPUTER VISION', period:'OCT 2023',
+      title:"Air Cube — Hand-Gesture Rubik's Cube",
+      desc:"A virtual Rubik's Cube controlled entirely by hand gestures, tracked with MediaPipe and rendered with OpenCV. A Kociemba-algorithm auto-solver and a VPython/Tkinter UI round it out. Runner-up, Syntax Error 2023.",
+      metrics:['Runner-up, Syntax Error 2023'],
+      repo:'https://github.com/shadowPunch/Air-Cube-'
+    },
+    {
+      cat:'robotics', catLabel:'ROBOTICS & CONTROL', period:'2024',
+      title:'Control of Mecanum Wheels',
+      desc:'A control system for a mecanum-wheeled robot, enabling independent translation and rotation for omnidirectional movement.',
+      metrics:['C++ control firmware'],
+      repo:'https://github.com/shadowPunch/Control-of-Mecanum-wheels',
+      star:1
+    },
+    {
+      cat:'robotics', catLabel:'ROBOTICS & CONTROL', period:'2024',
+      title:'Multi-Robot Coordination',
+      desc:'Multi-robot coordination using SLAM, Conflict-Based Search (CBS) and clustering for decentralized task allocation and collision-free routing.',
+      metrics:['SLAM + CBS','Decentralized routing'],
+      repo:'https://github.com/shadowPunch/Multi-Robot-Coordination'
+    }
+  ];
+
+  var grid = document.getElementById('projectGrid');
+  function cardHTML(p){
+    var metrics = p.metrics.map(function(m){ return '<span class="chip">'+m+'</span>'; }).join('');
+    var star = p.star ? '<span class="pcard-star">★ '+p.star+'</span>' : '<span></span>';
+    return (
+      '<article class="pcard reveal is-visible" data-cat="'+p.cat+'">'+
+        '<div class="pcard-top"><span class="pcard-cat">'+p.catLabel+'</span><span class="pcard-period">'+p.period+'</span></div>'+
+        '<h3>'+p.title+'</h3>'+
+        '<p>'+p.desc+'</p>'+
+        '<div class="pcard-metrics">'+metrics+'</div>'+
+        '<div class="pcard-foot">'+
+          '<a class="pcard-link" href="'+p.repo+'" target="_blank" rel="noopener">View repo ↗</a>'+
+          star+
+        '</div>'+
+      '</article>'
+    );
+  }
+  if(grid){ grid.innerHTML = projects.map(cardHTML).join(''); }
+
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      document.querySelectorAll('.pcard').forEach(function(card){
+        var cats = card.getAttribute('data-cat').split(' ');
+        card.classList.toggle('hidden', f !== 'all' && cats.indexOf(f) === -1);
+      });
+    });
+  });
+
+  /* ---------------- live github feed ---------------- */
+  var EXCLUDE = ['shadowPunch', 'shadowPunch.github.io'];
+  var FALLBACK = [
+    {name:'P2P-file-transfer', language:'JavaScript', stars:0, fork:false, description:'P2P file transfer using WebRTC', updated_at:'2026-01-01T00:00:00Z'},
+    {name:'GC_quant-Sisyphus', language:'Jupyter Notebook', stars:0, fork:false, description:"Working repo for GC Tech'26 — high-prep quant problem statement", updated_at:'2025-11-01T00:00:00Z'},
+    {name:'BEC-108-Course-project', language:null, stars:0, fork:false, description:'Course project on homology modelling (Bioinformatics)', updated_at:'2025-10-01T00:00:00Z'},
+    {name:'BEC-108-PCA', language:'Python', stars:0, fork:false, description:'BEC-108 coursework', updated_at:'2025-10-01T00:00:00Z'},
+    {name:'BEC-108-HMM', language:'Jupyter Notebook', stars:0, fork:false, description:'BEC-108 coursework', updated_at:'2025-10-01T00:00:00Z'},
+    {name:'GIS', language:null, stars:0, fork:false, description:'Proposal for ISRO Hackathon 2025', updated_at:'2025-09-01T00:00:00Z'},
+    {name:'Steganography', language:'Python', stars:0, fork:false, description:'PHC-303 course project on audio steganography', updated_at:'2025-08-01T00:00:00Z'},
+    {name:'Plots-for-Report-on-Ferromagnetism', language:null, stars:0, fork:false, description:'Plots for a report on ferromagnetism', updated_at:'2025-06-01T00:00:00Z'}
+  ];
+
+  function timeAgo(dateStr){
+    var diff = Date.now() - new Date(dateStr).getTime();
+    var days = Math.floor(diff / 86400000);
+    if(days < 1) return 'today';
+    if(days < 30) return days + 'd ago';
+    var months = Math.floor(days/30);
+    if(months < 12) return months + 'mo ago';
+    return Math.floor(months/12) + 'y ago';
+  }
+
+  function renderFeed(repos, cached){
+    var body = document.getElementById('feedBody');
+    if(!body) return;
+    var filtered = repos.filter(function(r){ return EXCLUDE.indexOf(r.name) === -1; });
+    filtered.sort(function(a,b){ return new Date(b.updated_at) - new Date(a.updated_at); });
+    var html = filtered.map(function(r){
+      var stars = r.stars !== undefined ? r.stars : r.stargazers_count;
+      return (
+        '<div class="feed-row">'+
+          '<div class="feed-name"><a href="https://github.com/shadowPunch/'+r.name+'" target="_blank" rel="noopener">'+r.name+(r.fork ? ' <span class="feed-lang" style="color:var(--muted-2)">(fork)</span>' : '')+'</a>'+
+          (r.description ? '<div class="feed-desc">'+r.description+'</div>' : '')+
+          '</div>'+
+          '<div class="feed-lang">'+(r.language || '—')+'</div>'+
+          '<div class="feed-stars">★ '+stars+'</div>'+
+          '<div class="feed-updated">'+timeAgo(r.updated_at)+'</div>'+
+        '</div>'
+      );
+    }).join('');
+    body.innerHTML = html || '<div class="feed-loading">// no repositories found</div>';
+    if(cached){
+      var notice = document.createElement('div');
+      notice.className = 'feed-loading';
+      notice.textContent = '// live fetch unavailable — showing cached snapshot';
+      body.prepend(notice);
+    }
+  }
+
+  fetch('https://api.github.com/users/shadowPunch/repos?per_page=100&sort=updated')
+    .then(function(r){ if(!r.ok) throw new Error('rate limited or offline'); return r.json(); })
+    .then(function(data){ renderFeed(data, false); })
+    .catch(function(){ renderFeed(FALLBACK, true); });
+
+  /* ---------------- hero oscilloscope canvas ---------------- */
+  var canvas = document.getElementById('scope');
+  if(canvas){
+    var ctx = canvas.getContext('2d');
+    var hero = canvas.closest('.hero');
+    var mouseX = 0.5, mouseY = 0.5, t = 0;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function resize(){
+      var rect = hero.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    hero.addEventListener('mousemove', function(e){
+      var rect = hero.getBoundingClientRect();
+      mouseX = (e.clientX - rect.left) / rect.width;
+      mouseY = (e.clientY - rect.top) / rect.height;
+      var roX = document.getElementById('ro-x');
+      var roY = document.getElementById('ro-y');
+      if(roX) roX.textContent = (0.4 + mouseY*1.2).toFixed(2);
+      if(roY) roY.textContent = (1.2 + mouseX*2.4).toFixed(2);
+    });
+
+    function drawWave(color, freq, amp, phase, glow){
+      var w = canvas.width, h = canvas.height, midY = h*0.55;
+      ctx.beginPath();
+      ctx.lineWidth = 2 * dpr;
+      ctx.strokeStyle = color;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = glow;
+      for(var x=0; x<=w; x += 4*dpr){
+        var nx = x/w;
+        var y = midY + Math.sin(nx*freq*Math.PI*2 + phase) * amp
+                + Math.sin(nx*freq*7 + phase*1.7) * (amp*0.08);
+        if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    }
+
+    function frame(){
+      var w = canvas.width, h = canvas.height;
+      ctx.clearRect(0,0,w,h);
+      t += 0.016;
+      var freq1 = 1.6 + mouseX*1.8;
+      var amp1 = (0.06 + mouseY*0.05) * h;
+      drawWave('rgba(255,180,84,0.85)', freq1, amp1, t*1.3, 10*dpr);
+      var freq2 = 2.4 - mouseX*1.1;
+      var amp2 = (0.045 + (1-mouseY)*0.04) * h;
+      drawWave('rgba(61,217,195,0.6)', freq2, amp2, t*1.7 + 1.2, 8*dpr);
+      if(!reduceMotion){ requestAnimationFrame(frame); }
+    }
+    if(reduceMotion){
+      drawWave('rgba(255,180,84,0.85)', 1.6, 0.06*canvas.height, 0, 6*dpr);
+      drawWave('rgba(61,217,195,0.6)', 2.4, 0.045*canvas.height, 1.2, 5*dpr);
+    } else {
+      requestAnimationFrame(frame);
+    }
+  }
+
+})();
+</script>
 </body>
 </html>
